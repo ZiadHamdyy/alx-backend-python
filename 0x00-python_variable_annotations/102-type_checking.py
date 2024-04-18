@@ -5,6 +5,7 @@ from typing import Tuple, List, Any
 
 
 def zoom_array(lst: Tuple, factor: int = 2) -> List:
+    """ This module add type annotations to the function"""
     zoomed_in: List[int] = []
     for item in lst:
         for _ in range(factor):
