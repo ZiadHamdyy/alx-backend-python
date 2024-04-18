@@ -4,9 +4,9 @@
 from typing import List
 
 
-def sum_mixed_list(input_list: List[int]) -> float:
-    """type-annotated function sum_list which takes a list input_list"""
-    if not input_list:
+def sum_mixed_list(mxd_lst: List[int]) -> float:
+    """type-annotated function sum_list which takes a list mxd_lst"""
+    if not mxd_lst:
         return 0
     else:
-        return input_list[0] + sum_mixed_list(input_list[1:])
+        return mxd_lst[0] + sum_mixed_list(mxd_lst[1:])
