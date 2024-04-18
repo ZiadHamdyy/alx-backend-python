@@ -3,6 +3,7 @@
 
 from typing import Sequence, Any, Union
 
+
 def safe_first_element(lst: Sequence[Any]) -> Union[Any, None]:
     """Augment code with the correct duck-typed annotations"""
     if lst:
