@@ -76,7 +76,8 @@ class TestGithubOrgClient(unittest.TestCase):
     },
 ])
 class TestIntegrationGithubOrgClient(unittest.TestCase):
-
+    """TestIntegrationGithubOrgClient class that inherits from
+    unittest.TestCase"""
     @classmethod
     def setUpClass(cls):
         """Sets up class fixtures before running tests."""
@@ -86,6 +87,7 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         }
 
         def get_payload(url):
+            """get_payload"""
             return unittest.mock.Mock(**{'json.return_value':
                                          route_payload[url]})
 
