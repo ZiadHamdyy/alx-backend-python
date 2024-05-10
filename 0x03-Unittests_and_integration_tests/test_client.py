@@ -39,6 +39,8 @@ class TestGithubOrgClient(unittest.TestCase):
         """test_public_repos"""
         sample_payload = [
             {"name": "repo1", "license": {"key": "MIT"}},
+            {"name": "repo2", "license": {"key": "Apache"}},
+            {"name": "repo3", "license": {"key": "GPL"}},
         ]
 
         mock_public_repos_url.return_value = \
