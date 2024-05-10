@@ -39,8 +39,6 @@ class TestGithubOrgClient(unittest.TestCase):
         """test_public_repos"""
         sample_payload = [
             {"name": "repo1", "license": {"key": "MIT"}},
-            {"name": "repo2", "license": {"key": "Apache"}},
-            {"name": "repo3", "license": {"key": "GPL"}},
         ]
 
         mock_public_repos_url.return_value = \
@@ -56,6 +54,16 @@ class TestGithubOrgClient(unittest.TestCase):
         mock_public_repos_url.assert_called_once()
 
         self.assertEqual(repos, ["repo1"])
+
+    @parameterized.expand([
+        ({"license": {"key": "my_license"}}, "my_license", True),
+        ({"license": {"key": "other_license"}}, "my_license", False),
+    ])
+    def test_has_license(self, repo, license_key, expected_result):
+        """test_has_license"""
+        client = GithubOrgClient("testorg")
+        result = client.has_license(repo, license_key)
+        self.assertEqual(result, expected_result)
 
 
 if __name__ == "__main__":
