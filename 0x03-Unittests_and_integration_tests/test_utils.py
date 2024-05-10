@@ -2,6 +2,7 @@
 """TestAccessNestedMap"""
 
 import unittest
+import unittest.mock
 from parameterized import parameterized  # type: ignore
 from utils import access_nested_map, get_json
 
@@ -38,7 +39,7 @@ class TestGetJson(unittest.TestCase):
         ("http://example.com", {"payload": True}),
         ("http://holberton.io", {"payload": False}),
     ])
-    @unittest.mock.patch('requests.get')
+    @unittest.mock.patch('utils.requests.get')
     def test_get_json(self, test_url, test_payload, mock_get):
         """test_get_json method to test that utils.get_json
         returns the expected result"""
